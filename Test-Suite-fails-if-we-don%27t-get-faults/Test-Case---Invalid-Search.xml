@@ -34,6 +34,30 @@
       </con:properties>
     </con:config>
   </con:testStep>
+  <con:testStep type="groovy" name="Another Groovy Script" id="0d986c36-9487-4519-a1f6-46cf78a7c25b">
+    <con:settings/>
+    <con:config>
+      <script>def testSuites
+def testCases
+def testSteps
+
+//Iterates and checks TestSuite statuses 
+testSuites = projectRunner.getResults()
+testSuites.each() {
+	if(it.getStatus().toString()=="FAIL")log.info "->TestSuite '" + it.getTestSuite().getName() + "' status: " + it.getStatus().toString() + "..." + it.getTimeTaken() + " ms"
+	//Iterates and checks TestCase statuses 
+    testCases = it.getResults()
+	testCases.each() {
+		if(it.getStatus().toString()=="FAIL")log.info "  └--> TestCase '" + it.getTestCase().getName() + "' status: " + it.getStatus().toString() + "..." + it.getTimeTaken() + " ms"
+		//Iterates and checks TestStep statuses
+        testSteps =it.getResults()
+		testSteps.each() {
+			if(it.getStatus().toString()=="FAIL")log.info "       └--> TestStep '" + it.getTestStep().getName() + "' status: " + it.getStatus().toString() + "..." + it.getTimeTaken() + " ms"
+			}
+	}
+}</script>
+    </con:config>
+  </con:testStep>
   <con:testStep type="request" name="Test Request - Correct Search wo Login" id="110d46aa-fe58-4586-b95e-348e84edc2bd">
     <con:settings/>
     <con:config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="con:RequestStep">
