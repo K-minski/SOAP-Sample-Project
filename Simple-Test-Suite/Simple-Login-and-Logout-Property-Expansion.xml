@@ -72,30 +72,6 @@
       </con:request>
     </con:config>
   </con:testStep>
-  <con:testStep type="groovy" name="Sample Groovy Script" id="68e362a9-7160-4e39-b663-bd76c97a129f">
-    <con:settings/>
-    <con:config>
-      <script>def testSuites
-def testCases
-def testSteps
-
-//Iterates and checks TestSuite statuses 
-testSuites = projectRunner.getResults()
-testSuites.each() {
-	if(it.getStatus().toString()=="FAIL")log.info "->TestSuite '" + it.getTestSuite().getName() + "' status: " + it.getStatus().toString() + "..." + it.getTimeTaken() + " ms"
-	//Iterates and checks TestCase statuses 
-    testCases = it.getResults()
-	testCases.each() {
-		if(it.getStatus().toString()=="FAIL")log.info "  └--> TestCase '" + it.getTestCase().getName() + "' status: " + it.getStatus().toString() + "..." + it.getTimeTaken() + " ms"
-		//Iterates and checks TestStep statuses
-        testSteps =it.getResults()
-		testSteps.each() {
-			if(it.getStatus().toString()=="FAIL")log.info "       └--> TestStep '" + it.getTestStep().getName() + "' status: " + it.getStatus().toString() + "..." + it.getTimeTaken() + " ms"
-			}
-	}
-}</script>
-    </con:config>
-  </con:testStep>
   <con:testStep type="request" name="Test Request - logout" id="02afe7f7-671e-4464-95f1-22c16a7982fd">
     <con:settings/>
     <con:config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="con:RequestStep">
