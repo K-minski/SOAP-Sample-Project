@@ -61,22 +61,6 @@
       </con:transfers>
     </con:config>
   </con:testStep>
-  <con:testStep type="groovy" name="Groovy Script" id="54a81876-1dae-4b4a-bb64-efcff477c040">
-    <con:settings/>
-    <con:config>
-      <script>import com.eviware.soapui.impl.rest.support.RestUtils
-
-def rutils = new RestUtils()
-
-def endpoint =  submit.request.getEndpoint() // get Endpoint
-def pathTempl = submit.request.getPath() // get Resource template
-def path = RestUtils.getExpandedPath(pathTempl,submit.request.getParams(),context.modelItem) // get Resource path with template params expanded
-def queryParam = rutils.getQueryParamsString(submit.request) // get Query with parameters
-
-def fullPath = endpoint + path + queryParam
-log.info fullPath</script>
-    </con:config>
-  </con:testStep>
   <con:testStep type="request" name="Test Request - login" id="7fca3315-9500-4384-be8e-b72f7ac6c6f4">
     <con:settings/>
     <con:config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="con:RequestStep">
