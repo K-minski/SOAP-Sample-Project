@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <con:testSuite xmlns:con="http://eviware.com/soapui/config" name="Simple Test Suite" id="21163bcc-d79b-43c4-b47b-e9a9e4465539">
-  <con:description id="27b12e4e-597d-438d-a76c-aa8235246fdf">This is a sample Test Suite.
+  <con:description id="1b7cd86e-1d29-4fe1-8016-456e375a38ab">This is a sample Test Suite.
 
             It contains a number of Test Cases Illustrating a number of principles with ReadyAPI Test.
 
